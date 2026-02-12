@@ -1,0 +1,81 @@
+{
+  "name": "TrainingJob",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Job name"
+    },
+    "dataset_id": {
+      "type": "string",
+      "description": "Dataset to use"
+    },
+    "model_name": {
+      "type": "string",
+      "description": "ML algorithm"
+    },
+    "learning_type": {
+      "type": "string",
+      "enum": [
+        "Supervised",
+        "Unsupervised",
+        "Semi-Supervised",
+        "Ensemble",
+        "Reinforcement"
+      ]
+    },
+    "schedule": {
+      "type": "string",
+      "enum": [
+        "once",
+        "daily",
+        "weekly",
+        "monthly"
+      ],
+      "default": "once",
+      "description": "Training schedule"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "running",
+        "completed",
+        "failed",
+        "cancelled"
+      ],
+      "default": "pending"
+    },
+    "configuration": {
+      "type": "object",
+      "description": "Training configuration"
+    },
+    "last_run": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last execution time"
+    },
+    "next_run": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Next scheduled run"
+    },
+    "auto_deploy": {
+      "type": "boolean",
+      "default": false,
+      "description": "Auto-deploy after training"
+    }
+  },
+  "required": [
+    "name",
+    "dataset_id",
+    "model_name",
+    "learning_type"
+  ],
+  "rls": {
+    "read": true,
+    "create": true,
+    "update": true,
+    "delete": true
+  }
+}

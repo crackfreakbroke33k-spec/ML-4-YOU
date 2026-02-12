@@ -1,0 +1,42 @@
+{
+  "name": "ModelMetrics",
+  "type": "object",
+  "properties": {
+    "model_id": {
+      "type": "string",
+      "description": "SavedModel ID"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Metric timestamp"
+    },
+    "accuracy": {
+      "type": "number",
+      "description": "Model accuracy"
+    },
+    "latency_ms": {
+      "type": "number",
+      "description": "Response time in ms"
+    },
+    "prediction_count": {
+      "type": "number",
+      "description": "Number of predictions"
+    },
+    "error_rate": {
+      "type": "number",
+      "description": "Error rate percentage"
+    },
+    "confidence_score": {
+      "type": "number",
+      "description": "Average confidence"
+    }
+  },
+  "required": [
+    "model_id"
+  ],
+  "rls": {
+    "read": true,
+    "create": true
+  }
+}

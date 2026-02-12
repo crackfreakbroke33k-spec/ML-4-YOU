@@ -1,0 +1,41 @@
+{
+  "name": "ActivityLog",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string",
+      "description": "Email of user who performed action"
+    },
+    "action_type": {
+      "type": "string",
+      "enum": [
+        "login",
+        "logout",
+        "train_model",
+        "upload_dataset",
+        "profile_update",
+        "user_promotion",
+        "user_demotion",
+        "analysis_delete"
+      ],
+      "description": "Type of activity"
+    },
+    "details": {
+      "type": "string",
+      "description": "Additional details about the action"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata"
+    }
+  },
+  "required": [
+    "user_email",
+    "action_type"
+  ],
+  "rls": {
+    "read": true,
+    "create": true,
+    "delete": true
+  }
+}

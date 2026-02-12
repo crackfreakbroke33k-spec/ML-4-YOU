@@ -1,0 +1,123 @@
+{
+  "name": "MLAnalysis",
+  "type": "object",
+  "properties": {
+    "dataset_name": {
+      "type": "string",
+      "description": "Name of the dataset used"
+    },
+    "dataset_icon": {
+      "type": "string",
+      "description": "Emoji icon for the dataset"
+    },
+    "learning_type": {
+      "type": "string",
+      "enum": [
+        "Supervised",
+        "Unsupervised",
+        "Semi-Supervised",
+        "Ensemble",
+        "Reinforcement"
+      ],
+      "description": "Type of machine learning"
+    },
+    "model_name": {
+      "type": "string",
+      "description": "Name of the model used"
+    },
+    "accuracy": {
+      "type": "number",
+      "description": "Model accuracy percentage"
+    },
+    "loss": {
+      "type": "number",
+      "description": "Model loss value"
+    },
+    "precision": {
+      "type": "number",
+      "description": "Precision metric"
+    },
+    "recall": {
+      "type": "number",
+      "description": "Recall metric"
+    },
+    "f1_score": {
+      "type": "number",
+      "description": "F1 score metric"
+    },
+    "confusion_matrix": {
+      "type": "array",
+      "description": "Confusion matrix data",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        }
+      }
+    },
+    "training_history": {
+      "type": "object",
+      "description": "Training and validation curves data",
+      "properties": {
+        "epochs": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "train_acc": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "val_acc": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "train_loss": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "val_loss": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "training_duration": {
+      "type": "number",
+      "description": "Training time in seconds"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "failed"
+      ],
+      "default": "completed",
+      "description": "Training status"
+    },
+    "num_features": {
+      "type": "number",
+      "description": "Number of features in dataset"
+    }
+  },
+  "required": [
+    "dataset_name",
+    "learning_type",
+    "model_name"
+  ],
+  "rls": {
+    "read": true,
+    "create": true,
+    "update": true,
+    "delete": true
+  }
+}

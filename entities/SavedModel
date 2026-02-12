@@ -1,0 +1,73 @@
+{
+  "name": "SavedModel",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Model name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Model description"
+    },
+    "model_name": {
+      "type": "string",
+      "description": "ML algorithm used"
+    },
+    "learning_type": {
+      "type": "string",
+      "enum": [
+        "Supervised",
+        "Unsupervised",
+        "Semi-Supervised",
+        "Ensemble",
+        "Reinforcement"
+      ],
+      "description": "Type of learning"
+    },
+    "dataset_name": {
+      "type": "string",
+      "description": "Dataset used for training"
+    },
+    "configuration": {
+      "type": "object",
+      "description": "Model configuration and hyperparameters"
+    },
+    "metrics": {
+      "type": "object",
+      "description": "Performance metrics"
+    },
+    "is_deployed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether model is deployed as API"
+    },
+    "is_public": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether model is shared publicly"
+    },
+    "api_endpoint": {
+      "type": "string",
+      "description": "API endpoint URL if deployed"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Model tags"
+    }
+  },
+  "required": [
+    "name",
+    "model_name",
+    "learning_type"
+  ],
+  "rls": {
+    "read": true,
+    "create": true,
+    "update": true,
+    "delete": true
+  }
+}

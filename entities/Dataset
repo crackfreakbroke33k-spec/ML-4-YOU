@@ -1,0 +1,84 @@
+{
+  "name": "Dataset",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Dataset name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Dataset description"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Dataset emoji icon"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "URL to dataset file"
+    },
+    "samples_count": {
+      "type": "number",
+      "description": "Number of samples"
+    },
+    "features_count": {
+      "type": "number",
+      "description": "Number of features"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Healthcare",
+        "Finance",
+        "Retail",
+        "Gaming",
+        "Education",
+        "Research",
+        "Other"
+      ],
+      "description": "Dataset category"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Dataset tags"
+    },
+    "version": {
+      "type": "string",
+      "default": "1.0",
+      "description": "Dataset version"
+    },
+    "is_public": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether dataset is shared publicly"
+    },
+    "file_size": {
+      "type": "number",
+      "description": "File size in bytes"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "CSV",
+        "JSON",
+        "Excel"
+      ],
+      "description": "File format"
+    }
+  },
+  "required": [
+    "name",
+    "file_url",
+    "category"
+  ],
+  "rls": {
+    "read": true,
+    "create": true,
+    "update": true,
+    "delete": true
+  }
+}
